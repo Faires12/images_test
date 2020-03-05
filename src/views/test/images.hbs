@@ -1,0 +1,14 @@
+<div>
+    {{#each imagens}}
+        <div>
+            <h3>{{nome}}</h3><br>
+            <img src="{{imagemURL}}" alt=""><br>
+            <button><a href="edit/{{_id}}">Editar</a></button>
+            <button class="delete" id="delete/{{_id}}">Deletar</button>
+        </div>
+        <hr>
+    {{else}}
+        <h1>Nenhuma imagem encontrada!</h1>
+    {{/each}}
+</div>
+

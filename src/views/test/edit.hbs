@@ -1,0 +1,28 @@
+{{#each imagem}}
+    <form action="/edit" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{_id}}">
+        <input type="text" name="nome" placeholder="Nome" value="{{nome}}"><br>
+        (Opcional)<input type="file" name="imagem" id="editFile"><br>
+        <button type="submit">
+            Enviar
+        </button>
+    </form>
+    <img src="{{imagemURL}}" id="editImage">
+    {{else}}
+{{/each}}
+
+<script>
+    const fileipt = document.getElementById("editFile")
+    fileipt.addEventListener('change', () => {
+        const file = event.target.files[0]
+        if(file){
+            var reader = new FileReader()
+            reader.onload = evt => {
+                document.getElementById("editImage").setAttribute('src', evt.target.result)
+            }
+            reader.readAsDataURL(file)
+        }
+    })
+</script>
+
+
